@@ -3,6 +3,8 @@ let gameStarted = false;
 let currentBlock;
 let currentRow = 11;
 let currentColumn = 0;
+let intervalId;
+let blockDirection = 1; // 1 = right, -1 = left
 const startButton = document.getElementById("start-button");
 const stopButton = document.getElementById("stop-button");
 
@@ -22,10 +24,20 @@ function createBlock() {
     currentBlock.style.gridColumnStart = currentColumn;
 }
 
+// Move the block incrementally across the columns
+function moveBlock() {
+    currentColumn += blockDirection;
+    currentBlock.style.gridColumnStart = currentColumn;
+    if (currentColumn === 7) {
+        blockDirection = -1;
+    } else if (currentColumn === 0) {
+        blockDirection = 1;
+    }
+}
+
 
 // Handle start button click
 function handleStartClick() {
-    console.log("Hello");
     startButton.disabled = true;
     stopButton.disabled = false;
     if (!gameStarted) {
@@ -33,6 +45,8 @@ function handleStartClick() {
         gameStarted = true;
         // Create the first block
         createBlock();
+        // Start the block moving
+        intervalId = setInterval(moveBlock, 1000);
     }
 }
 
