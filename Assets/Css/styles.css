@@ -1,13 +1,24 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 nav {
     background-color: #400D51;
     padding: 10px 20px;
     box-shadow: 0 0 10px #ffd1ff;
     border-radius: 10px;
+    height: 10%;
+}
 
+html {
+    height: 100vh;
 }
 
 main {
     border: 2px solid red;
+    height: 80%;
 }
 
 h1 {
@@ -19,9 +30,19 @@ footer {
     padding: 10px 20px;
     box-shadow: 0 0 10px #ffd1ff;
     border-radius: 10px;
-
+    height: 10%;
 }
 
 p {
     color: #ffd1ff;
+}
+
+#game-container {
+    background: linear-gradient(to top, yellow, #ffd1ff);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 5px #ffd1ff;
+    margin: 0 auto;
+    max-width: 90%;
+    height: 100%;
 }
