@@ -49,10 +49,11 @@ p {
 
 #grid-container {
     display: grid;
-    grid-template-rows: repeat(15, 25px);
-    grid-template-columns: repeat(9, 25px);
+    grid-template-rows: repeat(11, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     width: 70%;
     height: 100%;
+    max-width: 250px;
     margin: 0 auto;
     background-color: black;
     border-radius: 10px;

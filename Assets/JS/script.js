@@ -1,7 +1,7 @@
 // Variables to store the game state
 let gameStarted = false;
 let currentBlock;
-let currentRow = 19;
+let currentRow = 11;
 let currentColumn = 0;
 const startButton = document.getElementById("start-button");
 const stopButton = document.getElementById("stop-button");
