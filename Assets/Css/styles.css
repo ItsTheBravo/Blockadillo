@@ -1,0 +1,27 @@
+nav {
+    background-color: #400D51;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px #ffd1ff;
+    border-radius: 10px;
+
+}
+
+main {
+    border: 2px solid red;
+}
+
+h1 {
+    color: #ffd1ff;
+}
+
+footer {
+    background-color: #400D51;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px #ffd1ff;
+    border-radius: 10px;
+
+}
+
+p {
+    color: #ffd1ff;
+}
