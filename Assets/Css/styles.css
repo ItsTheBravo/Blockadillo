@@ -25,16 +25,23 @@ h1 {
     color: #ffd1ff;
 }
 
-footer {
+/* footer {
     background-color: #400D51;
     padding: 10px 20px;
     box-shadow: 0 0 10px #ffd1ff;
     border-radius: 10px;
-    height: 10%;
-}
+    height: 5%;
+} */
 
 p {
     color: #ffd1ff;
+}
+
+#controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
 }
 
 #game-container {
@@ -63,4 +70,16 @@ p {
     background-color: blue;
     border-radius: 10px;
     box-shadow: 0 0 10px #ffd1ff;
+}
+
+.button {
+    flex-grow: 1;
+    background-color: purple;
+    border: 1px solid white;
+    color: white;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }
