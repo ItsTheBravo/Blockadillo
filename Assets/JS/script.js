@@ -43,17 +43,20 @@ function checkPosition() {
         currentRow--;
         // Create a new block
         createBlock();
-        intervalId = setInterval(moveBlock, 1000);
+        blockSpeed -= 100;
+        intervalId = setInterval(moveBlock, blockSpeed);
     } else {
         // The block is not lined up, reset the game
         alert("You lost!");
         currentRow = 11;
-        currentColumn = 11;
+        currentColumn = 0;
         blockDirection = 1;
         // Remove the block
         currentBlock.remove();
         // Create a new block
         createBlock();
+        blockSpeed = 1000;
+        intervalId = setInterval(moveBlock, blockSpeed);
     }
 }
 
