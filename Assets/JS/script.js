@@ -3,6 +3,10 @@ let gameStarted = false;
 let currentBlock;
 let currentRow = 11;
 let currentColumn = 0;
+let intervalId;
+let blockDirection = 1; // 1 = right, -1 = left
+let blockSpeed = 1000;
+
 const startButton = document.getElementById("start-button");
 const stopButton = document.getElementById("stop-button");
 
@@ -22,24 +26,58 @@ function createBlock() {
     currentBlock.style.gridColumnStart = currentColumn;
 }
 
+// Move the block incrementally across the columns
+function moveBlock() {
+    currentColumn += blockDirection;
+    currentBlock.style.gridColumnStart = currentColumn;
+    if (currentColumn === 7) {
+        blockDirection = -1;
+    } else if (currentColumn === 0) {
+        blockDirection = 1;
+    }
+}
+
+// Check if the block is lined up with the center column
+function checkPosition() {
+    if (currentColumn === 4) {
+        currentRow--;
+        // Create a new block
+        createBlock();
+        blockSpeed -= 100;
+        intervalId = setInterval(moveBlock, blockSpeed);
+    } else {
+        // The block is not lined up, reset the game
+        alert("You lost!");
+        currentRow = 11;
+        currentColumn = 0;
+        blockDirection = 1;
+        // Remove the block
+        currentBlock.remove();
+        // Create a new block
+        createBlock();
+        blockSpeed = 1000;
+        intervalId = setInterval(moveBlock, blockSpeed);
+    }
+}
 
 // Handle start button click
 function handleStartClick() {
-    console.log("Hello");
-    startButton.disabled = true;
-    stopButton.disabled = false;
     if (!gameStarted) {
         // Start the game
         gameStarted = true;
         // Create the first block
         createBlock();
+        // Start the block moving
+        intervalId = setInterval(moveBlock, 1000);
     }
 }
 
 // Handle stop button click
 function handleStopClick() {
-    stopButton.disabled = true;
-    startButton.disabled = false;
+    // Stop the block
+    clearInterval(intervalId);
+    // Check the position
+    checkPosition();
 }
 
 // Add event listeners to buttons
