@@ -63,8 +63,9 @@ function checkPosition() {
         currentRow = 11;
         currentColumn = 0;
         blockDirection = 1;
-        // Remove the block
+        // Remove the block and all existing blocks
         currentBlock.remove();
+        gridContainer.innerHTML = "";
         // Create a new block
         createBlock();
         blockSpeed = 1000;
@@ -95,9 +96,10 @@ function handleStopClick() {
 
 
 
-// Add event listeners to buttons
+// Add event listeners
 startButton.addEventListener("click", handleStartClick);
 stopButton.addEventListener("click", handleStopClick);
+gridContainer.addEventListener("click", handleStopClick);
 
 // Pause the game
 pauseButton.addEventListener("click", function () {
