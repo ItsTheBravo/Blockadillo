@@ -45,6 +45,12 @@ p {
     height: 10%;
 }
 
+#score-container {
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+}
+
 #game-container {
     background: linear-gradient(to top, yellow, #ffd1ff);
     border-radius: 15px;
