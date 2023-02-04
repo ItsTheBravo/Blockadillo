@@ -106,10 +106,14 @@ gridContainer.addEventListener("click", handleStopClick);
 pauseButton.addEventListener("click", function () {
     gridContainer.classList.add("paused");
     gamePaused = true;
+    pauseButton.style.display = "none";
+    resumeButton.style.display = "block";
 });
 
 // Resume the game
 resumeButton.addEventListener("click", function () {
     gridContainer.classList.remove("paused");
     gamePaused = false;
+    pauseButton.style.display = "block";
+    resumeButton.style.display = "none";
 });
