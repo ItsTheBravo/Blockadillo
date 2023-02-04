@@ -11,16 +11,26 @@
 <body>
     <nav>
         <h1>Blockadillo</h1>
+        <div id="score-container">
+            <span>Score: </span>
+            <span id="score">0</span>
+        </div>
     </nav>
     <main>
         <div id="game-container">
             <div id="grid-container">
+                <div class="paused-overlay">
+                    <h2 id="pause-alert">PAUSED</h2>
+                </div>
+
             </div>
         </div>
     </main>
     <div id="controls">
         <button id="start-button" class="button">Start</button>
-        <button id="stop-button" class="button" disabled>Stop</button>
+        <button id="stop-button" class="button">Stop</button>
+        <button id="pause-button" class="button">Pause</button>
+        <button id="resume-button" class="button">Resume</button>
     </div>
     <!-- <footer>
         <p>copyright 2023</p>
