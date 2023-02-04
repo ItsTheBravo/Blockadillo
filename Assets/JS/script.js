@@ -11,6 +11,7 @@ let gamePaused = false;
 
 
 // DOM elements
+const gameContainer = document.getElementById("game-container");
 const gridContainer = document.getElementById("grid-container");
 const scoreDisplay = document.getElementById("score");
 const startButton = document.getElementById("start-button");
@@ -103,10 +104,12 @@ gridContainer.addEventListener("click", handleStopClick);
 
 // Pause the game
 pauseButton.addEventListener("click", function () {
+    gridContainer.classList.add("paused");
     gamePaused = true;
 });
 
 // Resume the game
 resumeButton.addEventListener("click", function () {
+    gridContainer.classList.remove("paused");
     gamePaused = false;
 });
