@@ -9,10 +9,13 @@ let blockSpeed = 800;
 let score = 0;
 let gamePaused = false;
 
+// Error messages
+const errorMessage = document.getElementById("error-message");
 
 // DOM elements
 const gameContainer = document.getElementById("game-container");
 const gridContainer = document.getElementById("grid-container");
+const overlays = document.getElementById("overlays");
 const scoreDisplay = document.getElementById("score");
 const startButton = document.getElementById("start-button");
 const stopButton = document.getElementById("stop-button");
@@ -56,7 +59,7 @@ function updateScore() {
 // If the player reaches the top of the board, they win
 function checkWin() {
     if (score === 10) {
-        gridContainer.classList.add("win");
+        overlays.classList.add("win");
     }
 }
 
@@ -86,6 +89,8 @@ function gameReset() {
     // Remove the block and all existing blocks
     currentBlock.remove();
     gridContainer.innerHTML = "";
+    overlays.classList.remove("win");
+    overlays.classList.remove("paused");
     // Clear current interval
     clearInterval(intervalId);
     // Create a new block
@@ -94,50 +99,64 @@ function gameReset() {
     intervalId = setInterval(moveBlock, blockSpeed);
 }
 
-// Handle start button click
-function handleStartClick() {
-    if (!gameStarted) {
-        // Start the game
-        gameStarted = true;
-        // Create the first block
-        createBlock();
-        // Start the block moving
-        intervalId = setInterval(moveBlock, blockSpeed);
+// Add try-catch statements around certain parts of the code to handle errors
+
+try {
+    // Handle start button click
+    function handleStartClick() {
+        if (!gameStarted) {
+            // Start the game
+            gameStarted = true;
+            // Create the first block
+            createBlock();
+            // Start the block moving
+            intervalId = setInterval(moveBlock, blockSpeed);
+        }
     }
+
+    // Handle stop button click
+    function handleStopClick() {
+        console.log("Hello");
+        // Stop the block
+        clearInterval(intervalId);
+        // Check the position
+        checkPosition();
+    }
+} catch (error) {
+    console.error("Error starting or stopping the game:", error);
 }
 
-// Handle stop button click
-function handleStopClick() {
-    console.log("Hello");
-    // Stop the block
-    clearInterval(intervalId);
-    // Check the position
-    checkPosition();
+try {
+    // Handle pause button click
+    function handlePauseClick() {
+        overlays.classList.add("paused");
+        gamePaused = true;
+        pauseButton.style.display = "none";
+        resumeButton.style.display = "block";
+    }
+
+    // Handle resume click
+    function handleResumeClick() {
+        overlays.classList.remove("paused");
+        gamePaused = false;
+        pauseButton.style.display = "block";
+        resumeButton.style.display = "none";
+    }
+} catch (error) {
+    console.error("Error pausing or resuming the game:", error);
 }
 
-// Handle pause button click
-function handlePauseClick() {
-    gridContainer.classList.add("paused");
-    gamePaused = true;
-    pauseButton.style.display = "none";
-    resumeButton.style.display = "block";
+try {
+    // Add event listeners
+    startButton.addEventListener("click", handleStartClick);
+    stopButton.addEventListener("click", handleStopClick);
+    gridContainer.addEventListener("click", handleStopClick);
+    // Pause the game
+    pauseButton.addEventListener("click", handlePauseClick);
+    // Resume the game
+    resumeButton.addEventListener("click", handleResumeClick);
+    // Reset the board
+    resetButton.addEventListener("click", gameReset);
+} catch (error) {
+    console.error("Error adding event listeners:", error);
 }
-
-// Handle resume click 
-function handleResumeClick() {
-    gridContainer.classList.remove("paused");
-    gamePaused = false;
-    pauseButton.style.display = "block";
-    resumeButton.style.display = "none";
-}
-
-// Add event listeners
-startButton.addEventListener("click", handleStartClick);
-stopButton.addEventListener("click", handleStopClick);
-gridContainer.addEventListener("click", handleStopClick);
-// Pause the game
-pauseButton.addEventListener("click", handlePauseClick);
-// Resume the game
-resumeButton.addEventListener("click", handleResumeClick);
-// Reset the board
-resetButton.addEventListener("click", gameReset);
