@@ -56,7 +56,7 @@ p {
     backdrop-filter: blur(10px);
 }
 
-.paused .paused-overlay {
+.paused>.paused-overlay {
     display: block;
 }
 
@@ -141,4 +141,9 @@ p {
     margin: 0 auto;
     display: block;
     height: fit-content;
+}
+
+#error-message {
+    color: red;
+    margin-top: 20px;
 }
