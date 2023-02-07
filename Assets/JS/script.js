@@ -158,5 +158,5 @@ try {
     // Reset the board
     resetButton.addEventListener("click", gameReset);
 } catch (error) {
-    console.error("Error adding event listeners:", error);
+    console.error("Error adding an event listener:", error);
 }
