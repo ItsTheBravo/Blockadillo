@@ -87,6 +87,14 @@ p {
     font-size: 16px;
 }
 
+.alert {
+    text-align: center;
+    font-size: 200%;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
+
 #controls {
     display: flex;
     justify-content: center;
@@ -123,13 +131,6 @@ p {
     border-radius: 10px;
 }
 
-#pause-alert {
-    text-align: center;
-    font-size: 200%;
-    position: absolute;
-    top: 50%;
-    left: 40%;
-}
 
 #resume-button {
     display: none;

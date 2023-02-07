@@ -46,17 +46,25 @@ function moveBlock() {
     }
 }
 
-// Check if the block is lined up with the center column
-function checkPosition() {
+// The block is lined up, increase the score
+function updateScore() {
+    score++;
+    scoreDisplay.textContent = score;
+    currentRow--;
+}
+
+// If the player reaches the top of the board, they win
+function checkWin() {
     if (score === 10) {
         gridContainer.classList.add("win");
     }
-    if (currentColumn === 4) {
-        // The block is lined up, increase the score
-        score++;
-        scoreDisplay.textContent = score;
-        currentRow--;
+}
 
+// Check if the block is lined up with the center column
+function checkPosition() {
+    if (currentColumn === 4) {
+        checkWin();
+        updateScore();
         // Create a new block
         createBlock();
         blockSpeed -= 50;
@@ -79,6 +87,8 @@ function gameReset() {
     // Remove the block and all existing blocks
     currentBlock.remove();
     gridContainer.innerHTML = "";
+    // Clear current interval
+    clearInterval(intervalId);
     // Create a new block
     createBlock();
     blockSpeed = 800;
@@ -93,7 +103,7 @@ function handleStartClick() {
         // Create the first block
         createBlock();
         // Start the block moving
-        intervalId = setInterval(moveBlock, 1000);
+        intervalId = setInterval(moveBlock, 800);
     }
 }
 
