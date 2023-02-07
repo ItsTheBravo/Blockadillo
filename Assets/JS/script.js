@@ -18,6 +18,7 @@ const startButton = document.getElementById("start-button");
 const stopButton = document.getElementById("stop-button");
 const pauseButton = document.getElementById("pause-button");
 const resumeButton = document.getElementById("resume-button");
+const resetButton = document.getElementById("reset-button");
 
 // Create a new block
 function createBlock() {
@@ -47,6 +48,9 @@ function moveBlock() {
 
 // Check if the block is lined up with the center column
 function checkPosition() {
+    if (score === 10) {
+        gridContainer.classList.add("win");
+    }
     if (currentColumn === 4) {
         // The block is lined up, increase the score
         score++;
@@ -66,6 +70,7 @@ function checkPosition() {
 
 //Reset the board
 function gameReset() {
+    console.log("Reset");
     score = 0;
     scoreDisplay.textContent = score;
     currentRow = 11;
@@ -76,7 +81,7 @@ function gameReset() {
     gridContainer.innerHTML = "";
     // Create a new block
     createBlock();
-    blockSpeed = 1000;
+    blockSpeed = 800;
     intervalId = setInterval(moveBlock, blockSpeed);
 }
 
@@ -125,3 +130,5 @@ gridContainer.addEventListener("click", handleStopClick);
 pauseButton.addEventListener("click", handlePauseClick);
 // Resume the game
 resumeButton.addEventListener("click", handleResumeClick);
+// Reset the board
+resetButton.addEventListener("click", gameReset);
