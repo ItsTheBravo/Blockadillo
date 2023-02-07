@@ -71,7 +71,7 @@ p {
     backdrop-filter: blur(10px);
 }
 
-.win .win-overlay {
+.win>.win-overlay {
     display: block;
 }
 

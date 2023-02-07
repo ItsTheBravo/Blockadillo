@@ -71,7 +71,6 @@ function checkPosition() {
         intervalId = setInterval(moveBlock, blockSpeed);
     } else {
         // The block is not lined up, reset the game
-        alert("You lost!");
         gameReset();
     }
 }
@@ -103,7 +102,7 @@ function handleStartClick() {
         // Create the first block
         createBlock();
         // Start the block moving
-        intervalId = setInterval(moveBlock, 800);
+        intervalId = setInterval(moveBlock, blockSpeed);
     }
 }
 
