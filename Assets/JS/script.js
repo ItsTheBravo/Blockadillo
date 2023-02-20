@@ -8,15 +8,15 @@ let blockDirection = 1; // 1 = right, -1 = left
 let blockSpeed = 800;
 let score = 0;
 let gamePaused = false;
+let totalRounds = 3; // Total number of rounds to play
+let currentRound = 1; // Current round
 
-// Error messages
-const errorMessage = document.getElementById("error-message");
 
 // DOM elements
-const gameContainer = document.getElementById("game-container");
 const gridContainer = document.getElementById("grid-container");
 const overlays = document.getElementById("overlays");
 const scoreDisplay = document.getElementById("score");
+const roundDisplay = document.getElementById("round");
 const startButton = document.getElementById("start-button");
 const stopButton = document.getElementById("stop-button");
 const pauseButton = document.getElementById("pause-button");
@@ -80,7 +80,16 @@ function checkPosition() {
 
 //Reset the board
 function gameReset() {
-    console.log("Reset");
+    for (let i = 1; i <= totalRounds; i++) {
+        if (currentRound === i) {
+            roundDisplay.textContent = currentRound++;
+            break;
+        } else if (currentRound === 3) {
+            overlays.classList.add("win");
+            break;
+        }
+    }
+
     score = 0;
     scoreDisplay.textContent = score;
     currentRow = 11;
@@ -98,12 +107,9 @@ function gameReset() {
     blockSpeed = 800;
     intervalId = setInterval(moveBlock, blockSpeed);
 }
-
-// Add try-catch statements around certain parts of the code to handle errors
-
-try {
-    // Handle start button click
-    function handleStartClick() {
+// Handle start button click
+function handleStartClick() {
+    try {
         if (!gameStarted) {
             // Start the game
             gameStarted = true;
@@ -112,39 +118,49 @@ try {
             // Start the block moving
             intervalId = setInterval(moveBlock, blockSpeed);
         }
+    } catch (error) {
+        console.error("Error starting or stopping the game:", error);
     }
+}
 
-    // Handle stop button click
-    function handleStopClick() {
+// Handle stop button click
+function handleStopClick() {
+    try {
         console.log("Hello");
         // Stop the block
         clearInterval(intervalId);
         // Check the position
         checkPosition();
+    } catch (error) {
+        console.error("Error starting or stopping the game:", error);
     }
-} catch (error) {
-    console.error("Error starting or stopping the game:", error);
 }
 
-try {
-    // Handle pause button click
-    function handlePauseClick() {
+
+// Handle pause button click
+function handlePauseClick() {
+    try {
         overlays.classList.add("paused");
         gamePaused = true;
         pauseButton.style.display = "none";
         resumeButton.style.display = "block";
+    } catch (error) {
+        console.error("Error pausing or resuming the game:", error);
     }
+}
 
-    // Handle resume click
-    function handleResumeClick() {
+// Handle resume click
+function handleResumeClick() {
+    try {
         overlays.classList.remove("paused");
         gamePaused = false;
         pauseButton.style.display = "block";
         resumeButton.style.display = "none";
+    } catch (error) {
+        console.error("Error pausing or resuming the game:", error);
     }
-} catch (error) {
-    console.error("Error pausing or resuming the game:", error);
 }
+
 
 try {
     // Add event listeners
