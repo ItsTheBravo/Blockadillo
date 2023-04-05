@@ -126,7 +126,6 @@ function handleStartClick() {
 // Handle stop button click
 function handleStopClick() {
     try {
-        console.log("Hello");
         // Stop the block
         clearInterval(intervalId);
         // Check the position
