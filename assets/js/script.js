@@ -5,7 +5,7 @@ let currentRow = 11;
 let currentColumn = 0;
 let intervalId;
 let blockDirection = 1; // 1 = right, -1 = left
-let blockSpeed = 800;
+let blockSpeed = 1000;
 let score = 0;
 let gamePaused = false;
 let totalRounds = 3; // Total number of rounds to play
@@ -70,8 +70,12 @@ function checkPosition() {
         updateScore();
         // Create a new block
         createBlock();
-        blockSpeed -= 50;
+        blockSpeed *= 0.8;
         intervalId = setInterval(moveBlock, blockSpeed);
+        gridContainer.style.backgroundColor = "green";
+        setTimeout(function() {
+            gridContainer.style.backgroundColor = "";
+        }, 80);
     } else {
         // The block is not lined up, reset the game
         gameReset();
@@ -105,7 +109,7 @@ function gameReset() {
     clearInterval(intervalId);
     // Create a new block
     createBlock();
-    blockSpeed = 800;
+    blockSpeed = 1000;
     intervalId = setInterval(moveBlock, blockSpeed);
 }
 // Handle start button click
