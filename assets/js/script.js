@@ -81,7 +81,7 @@ function checkPosition() {
 //Reset the board
 function gameReset() {
     for (let i = 1; i <= totalRounds; i++) {
-        if (currentRound === i) {
+        if (currentRound < 3) {
             roundDisplay.textContent = currentRound++;
             break;
         } else if (currentRound === 3) {
@@ -94,6 +94,7 @@ function gameReset() {
     scoreDisplay.textContent = score;
     currentRow = 11;
     currentColumn = 0;
+    roundDisplay.textContent = 0;
     blockDirection = 1;
     // Remove the block and all existing blocks
     currentBlock.remove();
