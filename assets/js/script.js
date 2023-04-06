@@ -117,6 +117,8 @@ function handleStartClick() {
             createBlock();
             // Start the block moving
             intervalId = setInterval(moveBlock, blockSpeed);
+            // Show stop button
+            stopButton.style.display = "block";
         }
     } catch (error) {
         console.error("Error starting or stopping the game:", error);
@@ -142,6 +144,8 @@ function handlePauseClick() {
         overlays.classList.add("paused");
         gamePaused = true;
         pauseButton.style.display = "none";
+        stopButton.style.display = "none";
+        startButton.style.display = "none";
         resumeButton.style.display = "block";
     } catch (error) {
         console.error("Error pausing or resuming the game:", error);
@@ -154,6 +158,8 @@ function handleResumeClick() {
         overlays.classList.remove("paused");
         gamePaused = false;
         pauseButton.style.display = "block";
+        stopButton.style.display = "block";
+        startButton.style.display = "block";
         resumeButton.style.display = "none";
     } catch (error) {
         console.error("Error pausing or resuming the game:", error);

@@ -12,9 +12,8 @@ nav {
     height: 10%;
 }
 
-html {
-    height: 100vh;
-}
+
+html, body { height: 100% }
 
 main {
     border: 2px solid red;
@@ -135,9 +134,11 @@ p {
 }
 
 
-#resume-button {
+#resume-button, #stop-button {
     display: none;
 }
+
+
 
 #reset-button {
     flex-grow: 0;
