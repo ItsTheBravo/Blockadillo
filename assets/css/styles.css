@@ -18,7 +18,6 @@ section {
 html, body { height: 100% }
 
 main {
-    border: 2px solid red;
     height: 80%;
 }
 
@@ -27,16 +26,10 @@ h1 {
     text-align: center;
 }
 
-/* footer {
-    background-color: #400D51;
-    padding: 10px 20px;
-    box-shadow: 0 0 10px #ffd1ff;
-    border-radius: 10px;
-    height: 5%;
-} */
-
-p {
-    color: #ffd1ff;
+p,h2,ul {
+    color: black;
+    text-align: center;
+    margin: 1%;
 }
 
 .block {
@@ -83,7 +76,7 @@ p {
     display: block;
 }
 
-.start-overlay {
+#start-overlay {
     display: flex;
     position: absolute;
     top: 0;
@@ -95,6 +88,9 @@ p {
     z-index: 3;
     flex-wrap: wrap;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    justify-items:center;
 }
 
 .button {
@@ -114,6 +110,13 @@ p {
     text-align: center;
     font-size: 350%;
     padding: 70px;
+}
+
+.welcome {
+    flex-grow: 3;
+    text-align: center;
+    font-size: 200%;
+    padding: 20px;
 }
 
 #controls {
@@ -160,7 +163,7 @@ p {
 
 
 
-#reset-button, #begin-button {
+#reset-button, #start-button {
     flex-grow: 1;
     margin: 10px auto;
     display: block;

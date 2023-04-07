@@ -22,6 +22,7 @@ const stopButton = document.getElementById("stop-button");
 const pauseButton = document.getElementById("pause-button");
 const resumeButton = document.getElementById("resume-button");
 const resetButton = document.getElementById("reset-button");
+const startOverlay = document.getElementById("start-overlay");
 
 // Create a new block
 function createBlock() {
@@ -78,13 +79,16 @@ function checkPosition() {
         }, 80);
     } else {
         // The block is not lined up, reset the game
+        gridContainer.style.backgroundColor = "red";
+        setTimeout(function() {
+            gridContainer.style.backgroundColor = "";
+        }, 80);
         gameReset();
     }
 }
 
 //Reset the board
 function gameReset() {
-    console.log("Hello");
     for (let i = 1; i <= totalRounds; i++) {
         if (currentRound < 3) {
             roundDisplay.textContent = currentRound++;
@@ -125,6 +129,9 @@ function handleStartClick() {
             intervalId = setInterval(moveBlock, blockSpeed);
             // Show stop button
             stopButton.style.display = "block";
+            // Hide Overlay
+            startOverlay.style.display = "none";
+            startButton.style.display = "none";
         }
     } catch (error) {
         console.error("Error starting or stopping the game:", error);
