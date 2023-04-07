@@ -84,6 +84,7 @@ function checkPosition() {
 
 //Reset the board
 function gameReset() {
+    console.log("Hello");
     for (let i = 1; i <= totalRounds; i++) {
         if (currentRound < 3) {
             roundDisplay.textContent = currentRound++;

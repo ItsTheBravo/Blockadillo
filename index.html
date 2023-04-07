@@ -11,17 +11,18 @@
 </head>
 
 <body>
-    <nav>
-        <h1>Blockadillo</h1>
+    <section>
+        
         <div id="score-container">
             <span>Score: </span>
             <span id="score">0</span>
         </div>
+        <h1>Blockadillo</h1>
         <div id="round-container">
             <span>Round: </span>
             <span id="round">0</span>
         </div>
-    </nav>
+    </section>
     <main>
         <div id="game-container">
             <div id="grid-container">
@@ -34,6 +35,23 @@
                 <div class="win-overlay">
                     <h2 class="alert">You win!</h2>
                     <button id="reset-button" class="button">Play Again</button>
+                </div>
+                <div class="start-overlay">
+                    <h2 class="alert">Welcome to Blockadillo!</h2>
+                    <br>
+                    <h2>Objective:</h2>
+                    <p>Your goal is to make a tower to reach the top of the play area. 
+                        To do this, stop the block when it reaches the center of the screen, 
+                        the higher you go the more points you get! If you stop the block when
+                        it's not in the center, you lose and the game restarts.</p>
+                        <br>
+                    <h2>Controls:</h2>
+                    <ul>
+                        <li>To start the game, press "Start"</li>
+                        <li>To Pause the game at any time, press "Pause"</li>
+                        <li>To stop the block from moving, press "Stop"</li>
+                    </ul>
+                    <button id="begin-button" class="button">Start</button>
                 </div>
                 <div id="error-message" class="hidden"></div>
             </div>
