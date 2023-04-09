@@ -1,4 +1,6 @@
 # Blockadillo
+
+![Responsive](./assets/images/blockresponse.PNG)
 This is a simple block stacking game built with HTML, CSS, and JavaScript. The game involves moving a block horizontally across a grid and trying to line it up with the center column. If the block is lined up, the player scores a point and a new block is created. The game ends when the player reaches a certain number of points or when they fail to line up the block.
 Getting Started
 
@@ -21,10 +23,34 @@ To play the game, simply open the index.html file in a web browser. No additiona
     If you fail to line up the block, the game ends.
 
 ## Design 
-I left my designing for the end of the project, I wanted to focus mostly on the javascript, but in the end didn't have the time to make the project look better.
+![Wireframe](./assets/images/wire.PNG)
+
+I wanted to implement a mobile first design and started from mobile and worked my way out. I used  Noto Sans JP for my font and color mind for my colour scheme.
 
 ## Features 
-The site includes a fully playable game, it has a win screen and a pause screen. With buttons for play/pause and stopping the block by clicking the background or pressing stop.
+The site includes a fully playable game, it starts with player information:
+
+![info](./assets/images/infp.PNG)
+
+ It has a win screen: 
+ 
+ ![win](./assets/images/win.PNG)
+ 
+ and a pause screen: 
+ 
+ ![pause](./assets/images/pause.PNG). 
+ 
+ With buttons for pause and stopping the block:
+ 
+  ![buttons](./assets/images/controls.PNG) 
+
+  or by clicking the background of the game:
+  
+  ![game](./assets/images/game-board.PNG)
+
+  It also includes a game banner with score and rounds:
+
+  ![banner](./assets/images/banner.PNG)
 
 The block is created by adding a class to the grid container. The block moves using the setInterval function, and it gets faster as the block moves up the container. I had an issue with this function where the block would have a second interval after game reset, but was solved by having clearInterval in the right place.
 
@@ -78,6 +104,31 @@ Results
 | 5 | Pass   | Pass   |
 | 6 | N/A   | Fail   |
 
+
+## Deployment
+
+Prerequisites
+
+Before deploying the site, you will need the following:
+
+    A GitHub account
+    A GitHub repository containing the website's code
+    The website's code should be static, i.e., HTML, CSS, and JavaScript files
+
+Steps to Deploy The Website Using GitHub Pages
+
+    Create a new branch named "gh-pages" in the GitHub repository. This branch will be used to host the website.
+    Push the website's code to the "gh-pages" branch.
+    On the repository's settings page, scroll down to the "GitHub Pages" section.
+    In the "Source" section, select "gh-pages" as the branch and "/root" as the folder.
+    Click the "Save" button to save the changes.
+    Wait a few minutes for GitHub Pages to build and deploy your website.
+    The website will now be available at https://<username>.github.io/<repository-name>/
+
+Updating The Website
+
+Whenever you want to update the website, you can simply push the changes to the "gh-pages" branch, and GitHub Pages will automatically rebuild and deploy the updated website.
+
 ## Bugs
 1. I had an issue where sometimes the overlays don't appear when the game resets, and was hard to replicate, but adding a clear to the classes on reset mostly solves it.
 
@@ -88,4 +139,4 @@ Results
 ## Acknowledgements
 Game was inspired by the arcade game Stacker.
 I used http://colormind.io/ to help with my colour pallet
-I used https://bgjar.com for the code for the SVG background
+I used https://bgjar.com for the code for the SVG background, Google for the fonts
