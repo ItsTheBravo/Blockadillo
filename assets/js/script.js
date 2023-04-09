@@ -14,6 +14,7 @@ let currentRound = 1; // Current round
 
 // DOM elements
 const gridContainer = document.getElementById("grid-container");
+const navtop = document.getElementById("top");
 const overlays = document.getElementById("overlays");
 const scoreDisplay = document.getElementById("score");
 const roundDisplay = document.getElementById("round");
@@ -73,15 +74,15 @@ function checkPosition() {
         createBlock();
         blockSpeed *= 0.8;
         intervalId = setInterval(moveBlock, blockSpeed);
-        gridContainer.style.backgroundColor = "green";
+        navtop.style.backgroundColor = "green";
         setTimeout(function() {
-            gridContainer.style.backgroundColor = "";
+            navtop.style.backgroundColor = "";
         }, 80);
     } else {
         // The block is not lined up, reset the game
-        gridContainer.style.backgroundColor = "red";
+        navtop.style.backgroundColor = "red";
         setTimeout(function() {
-            gridContainer.style.backgroundColor = "";
+            navtop.style.backgroundColor = "";
         }, 80);
         gameReset();
     }
